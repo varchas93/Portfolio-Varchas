@@ -1,119 +1,550 @@
-/* --- Color Variables --- */
+/* --- Global Styles & Variables --- */
 :root {
-    --color-cream: #FDF5E6; /* Light, soft cream */
-    --color-blue-dark: #1E3A8A; /* Deep, professional blue */
-    --color-blue-light: #3B82F6; /* Brighter accent blue */
-    --color-text-dark: #333333;
-    --color-text-light: #FFFFFF;
-}
-
-/* --- Global Reset and Base Styles --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    --primary-text-color: #333;
+    --secondary-text-color: #555;
+    --background-light: #f8f8f8;
+    --background-white: #ffffff;
+    --accent-color: #007bff; /* A default blue accent for buttons/active states */
+    --border-color: #eee;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--color-cream); /* Use the cream color for the body background */
-    color: var(--color-text-dark);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--primary-text-color);
     line-height: 1.6;
 }
 
-/* --- Hero Section (Header) Styling --- */
-.hero-section {
-    background-color: var(--color-blue-dark); /* Dark blue background */
-    color: var(--color-text-light);
-    padding: 60px 20px;
-    text-align: center;
-    border-bottom: 5px solid var(--color-blue-light); /* Accent line */
-}
-
-.hero-section h1 {
-    font-size: 3em;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.hero-section h2 {
-    font-size: 1.8em;
-    font-weight: 300;
-    margin-bottom: 20px;
-}
-
-.intro-text {
-    font-style: italic;
-    opacity: 0.8;
-}
-
-/* --- Main Content Layout --- */
-.main-content {
-    max-width: 1200px;
-    margin: 40px auto;
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
-/* --- Introduction Section --- */
-.introduction {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    margin-bottom: 40px;
-    text-align: center;
+.section-padding {
+    padding: 80px 0;
 }
 
-.introduction h3 {
-    color: var(--color-blue-light);
+.section-alt-bg {
+    background-color: var(--background-white); /* Lighter background for alternating sections */
+}
+
+.section-title {
+    font-size: 2.8em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--primary-text-color);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1em;
+    color: var(--secondary-text-color);
+    margin-top: -40px; /* Pull it closer to the title */
+    margin-bottom: 40px;
+}
+
+h1, h2, h3, h4 {
+    color: var(--primary-text-color);
     margin-bottom: 15px;
 }
 
-/* --- Projects Section --- */
-.projects h2 {
-    text-align: center;
-    color: var(--color-blue-dark);
-    font-size: 2.5em;
+p {
+    margin-bottom: 1em;
+}
+
+/* --- Navbar Styling --- */
+.navbar {
+    background-color: var(--background-white);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.4em;
+    color: var(--primary-text-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-text-color);
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    font-size: 0.95em;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--background-white);
+    border: 1px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--accent-color), 10%); /* This won't work in pure CSS, but demonstrates intent */
+    background-color: #0056b3; /* Darker blue */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    margin-left: 15px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--background-white);
+}
+
+.btn-sm { /* For project cards */
+    padding: 8px 15px;
+    font-size: 0.85em;
+    background-color: #f0f0f0;
+    color: var(--primary-text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-sm:hover {
+    background-color: #e0e0e0;
+}
+
+/* --- Hero Section (Image 2) --- */
+.hero-section {
+    background-color: var(--background-white);
+    text-align: center; /* Adjust if content is left-aligned in original */
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    align-items: center;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .hero-content {
+        flex-direction: row; /* Side-by-side on larger screens */
+        text-align: left;
+        justify-content: center;
+    }
+    .hero-text {
+        max-width: 500px;
+    }
+}
+
+.profile-photo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+}
+
+.greeting {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: var(--secondary-text-color);
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.hero-section .role {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: var(--secondary-text-color);
     margin-bottom: 30px;
 }
 
+.hero-buttons {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center; /* Center buttons on mobile */
+}
+
+@media (min-width: 768px) {
+    .hero-buttons {
+        justify-content: flex-start; /* Left-align buttons on desktop */
+    }
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: var(--primary-text-color);
+    font-size: 1.8em;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+
+/* --- About Details (Education & Experience - Image 1) --- */
+.about-details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .about-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.card {
+    background-color: var(--background-white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.card h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+/* --- Skills Section (Image 4) --- */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skill-tag {
+    background-color: var(--background-white);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 0.95em;
+    color: var(--secondary-text-color);
+    white-space: nowrap; /* Keep tags on one line */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.skill-tag:hover {
+    background-color: var(--accent-color);
+    color: var(--background-white);
+    border-color: var(--accent-color);
+}
+
+/* --- Projects Section (Image 3) --- */
 .projects-grid {
     display: grid;
-    /* This creates the 2x2 grid layout you sketched, making it responsive */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    padding: 10px;
 }
 
 .project-card {
-    background-color: var(--color-text-light);
-    border: 1px solid var(--color-blue-dark);
-    border-radius: 8px;
-    padding: 25px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: var(--background-white);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Adding a hover effect for creativity */
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2); /* Blue shadow on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.logo-placeholder {
-    /* Matches the box shapes in your sketch */
-    width: 80px;
-    height: 80px;
-    background-color: var(--color-blue-light);
-    border: 3px solid var(--color-blue-dark);
-    margin: 0 auto 15px auto;
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.project-info h4 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+/* --- Certificates Section (Image 5) --- */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.certificate-card {
+    background-color: var(--background-white);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    text-align: center;
+    width: 100%; /* Ensure cards take full width in grid column */
+    max-width: 300px; /* Max width for individual cards */
+}
+
+.certificate-card img {
+    width: 100%;
+    height: 180px; /* Fixed height for consistency */
+    object-fit: contain; /* Keep aspect ratio and fit within box */
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.certificate-card p {
+    font-size: 0.95em;
+    color: var(--primary-text-color);
+    font-weight: 500;
+}
+
+/* --- Contact Section (Image 6) --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr 1.5fr; /* Info on left, form on right */
+        text-align: left;
+    }
+}
+
+.contact-info {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .contact-info {
+        text-align: left;
+    }
+}
+
+.contact-info h3 {
+    color: var(--accent-color);
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: var(--secondary-text-color);
+    margin-bottom: 30px;
+}
+
+.contact-info .social-links.large-icons {
     display: flex;
-    align-items: center;
     justify-content: center;
-    border-radius: 10px; /* Creative touch for the box */
+    gap: 25px; /* Increase gap for larger icons */
+    margin-top: 30px;
 }
 
-.project-card h4 {
-    color: var(--color-blue-dark);
-    font-weight: 600;
+@media (min-width: 768px) {
+    .contact-info .social-links.large-icons {
+        justify-content: flex-start;
+    }
+}
+
+.contact-info .social-links.large-icons a {
+    font-size: 2.5em; /* Larger icons */
+    color: var(--primary-text-color);
+}
+
+.contact-info .social-links.large-icons a:hover {
+    color: var(--accent-color);
+}
+
+.contact-form {
+    background-color: var(--background-white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--primary-text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Light blue focus ring */
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    background-color: var(--accent-color);
+    color: var(--background-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary-text-color); /* Dark footer */
+    color: var(--background-white);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 60px;
+    font-size: 0.9em;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+    }
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links li {
+        margin: 5px 15px;
+    }
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+    .hero-section .role {
+        font-size: 1.2em;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .btn-secondary {
+        margin-left: 0; /* Remove left margin on stacked buttons */
+    }
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 40px;
+    }
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links li {
+        margin: 5px 10px;
+        font-size: 0.9em;
+    }
+    .hero-section h1 {
+        font-size: 2em;
+    }
+    .hero-section .role {
+        font-size: 1em;
+    }
+    .profile-photo img {
+        width: 150px;
+        height: 150px;
+    }
+    .projects-grid, .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+    .card {
+        padding: 20px;
+    }
+    .contact-form {
+        padding: 30px;
+    }
 }
