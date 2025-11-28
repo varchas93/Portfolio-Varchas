@@ -1,0 +1,119 @@
+/* --- Color Variables --- */
+:root {
+    --color-cream: #FDF5E6; /* Light, soft cream */
+    --color-blue-dark: #1E3A8A; /* Deep, professional blue */
+    --color-blue-light: #3B82F6; /* Brighter accent blue */
+    --color-text-dark: #333333;
+    --color-text-light: #FFFFFF;
+}
+
+/* --- Global Reset and Base Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-cream); /* Use the cream color for the body background */
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+/* --- Hero Section (Header) Styling --- */
+.hero-section {
+    background-color: var(--color-blue-dark); /* Dark blue background */
+    color: var(--color-text-light);
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 5px solid var(--color-blue-light); /* Accent line */
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.hero-section h2 {
+    font-size: 1.8em;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* --- Main Content Layout --- */
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- Introduction Section --- */
+.introduction {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.introduction h3 {
+    color: var(--color-blue-light);
+    margin-bottom: 15px;
+}
+
+/* --- Projects Section --- */
+.projects h2 {
+    text-align: center;
+    color: var(--color-blue-dark);
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.projects-grid {
+    display: grid;
+    /* This creates the 2x2 grid layout you sketched, making it responsive */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 10px;
+}
+
+.project-card {
+    background-color: var(--color-text-light);
+    border: 1px solid var(--color-blue-dark);
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Adding a hover effect for creativity */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2); /* Blue shadow on hover */
+}
+
+.logo-placeholder {
+    /* Matches the box shapes in your sketch */
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-blue-light);
+    border: 3px solid var(--color-blue-dark);
+    margin: 0 auto 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px; /* Creative touch for the box */
+}
+
+.project-card h4 {
+    color: var(--color-blue-dark);
+    font-weight: 600;
+}
